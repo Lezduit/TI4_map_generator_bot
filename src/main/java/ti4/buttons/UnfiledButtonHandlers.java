@@ -140,7 +140,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelperHeroes.argentHeroStep3(game, player, event, buttonID);
     }
 
-    @ButtonHandler("requestAllFollow_")
+    @ButtonHandler(value = "requestAllFollow_", save = false)
     public static void requestAllFollow(ButtonInteractionEvent event, Game game) {
         if (game.getName().equalsIgnoreCase("fow273")) {
             event.getMessage().reply(event.getUser().getAsMention() + " has requested that everyone resolve this strategy card before play continues." +
@@ -700,14 +700,14 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelper.deleteMessage(event);
     }
 
-    @ButtonHandler("getRepairButtons_")
+    @ButtonHandler(value = "getRepairButtons_", save = false)
     public static void getRepairButtons(ButtonInteractionEvent event, Player player, String buttonID, Game game) {
         String pos = buttonID.replace("getRepairButtons_", "");
         List<Button> buttons = ButtonHelper.getButtonsForRepairingUnitsInASystem(player, game, game.getTileByPosition(pos));
         MessageHelper.sendMessageToChannelWithButtons(event.getMessageChannel(), player.getRepresentationUnfogged() + " Use buttons to resolve", buttons);
     }
 
-    @ButtonHandler("getDamageButtons_")
+    @ButtonHandler(value = "getDamageButtons_", save = false)
     public static void getDamageButtons(ButtonInteractionEvent event, Player player, String buttonID, Game game) {
         if (buttonID.contains("deleteThis")) {
             buttonID = buttonID.replace("deleteThis", "");
@@ -724,7 +724,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
             player.getRepresentationUnfogged() + " Use buttons to resolve", buttons);
     }
 
-    @ButtonHandler("refreshViewOfSystem_")
+    @ButtonHandler(value = "refreshViewOfSystem_", save = false)
     public static void refreshViewOfSystem(ButtonInteractionEvent event, String buttonID, Game game) {
         String rest = buttonID.replace("refreshViewOfSystem_", "");
         String pos = rest.split("_")[0];
@@ -740,7 +740,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         }
     }
 
-    @ButtonHandler("refresh_")
+    @ButtonHandler(value = "refresh_", save = false)
     public static void refresh(ButtonInteractionEvent event, Player player, String buttonID, Game game) {
         String planetName = buttonID.split("_")[1];
         Player p2 = player;
@@ -889,7 +889,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
                 Integer.parseInt(buttonID.split("_")[2]), event, false));
     }
 
-    @ButtonHandler("explore_look_All")
+    @ButtonHandler(value = "explore_look_All", save = false)
     public static void exploreLookAll(ButtonInteractionEvent event, Player player, Game game) {
         List<String> order = List.of("cultural", "industrial", "hazardous");
         for (String type : order) {
@@ -1145,7 +1145,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         }
     }
 
-    @ButtonHandler("get_so_discard_buttons")
+    @ButtonHandler(value = "get_so_discard_buttons", save = false)
     public static void getSODiscardButtons(ButtonInteractionEvent event, Player player, Game game) {
         String secretScoreMsg = "_ _\nClick a button below to discard your Secret Objective";
         List<Button> soButtons = SecretObjectiveHelper.getUnscoredSecretObjectiveDiscardButtons(player);
@@ -1187,7 +1187,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelper.deleteMessage(event);
     }
 
-    @ButtonHandler("getPsychoButtons")
+    @ButtonHandler(value = "getPsychoButtons", save = false)
     public static void offerPsychoButtons(Player player, Game game) {
         MessageHelper.sendMessageToChannelWithButtons(player.getCorrectChannel(),
             player.getRepresentationUnfogged() + " use buttons to gain 1 trade good per planet exhausted.",
@@ -1838,7 +1838,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         }
     }
 
-    @ButtonHandler("relic_look_top")
+    @ButtonHandler(value = "relic_look_top", save = false)
     public static void relicLookTop(ButtonInteractionEvent event, Game game, Player player) {
         List<String> deck = game.getAllRelics();
         if (deck.isEmpty()) {
@@ -1954,7 +1954,6 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelper.deleteMessage(event);
     }
 
-    @ButtonHandler("pay1tg") // TODO: delete this specific handler after Dec 2024
     @ButtonHandler("pay1tgToAnnounceARetreat")
     public static void pay1tgToAnnounceARetreat(ButtonInteractionEvent event, Player player) {
         MessageHelper.sendMessageToChannel(event.getChannel(), player.getFactionEmojiOrColor()
@@ -2051,7 +2050,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         MessageHelper.sendMessageToChannelWithButtons(player.getCardsInfoThread(), msg, buttons);
     }
 
-    @ButtonHandler("chooseMapView")
+    @ButtonHandler(value = "chooseMapView", save = false)
     public static void chooseMapView(ButtonInteractionEvent event) {
         List<Button> buttons = new ArrayList<>();
         buttons.add(Buttons.blue("checkWHView", "Find Wormholes"));
@@ -2236,7 +2235,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelper.deleteMessage(event);
     }
 
-    @ButtonHandler("temporaryPingDisable")
+    @ButtonHandler(value = "temporaryPingDisable", save = false)
     public static void temporaryPingDisable(ButtonInteractionEvent event, Game game) {
         game.setTemporaryPingDisable(true);
         MessageHelper.sendMessageToChannel(event.getChannel(), "Disabled autopings for this turn.");
@@ -2596,7 +2595,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         }
     }
 
-    @ButtonHandler("endOfTurnAbilities")
+    @ButtonHandler(value = "endOfTurnAbilities", save = false)
     public static void endOfTurnAbilities(ButtonInteractionEvent event, Player player, Game game) {
         String msg = "Use buttons to do an end of turn ability";
         List<Button> buttons = ButtonHelper.getEndOfTurnAbilities(player, game);
@@ -2669,7 +2668,7 @@ public class UnfiledButtonHandlers { // TODO: move all of these methods to a bet
         ButtonHelper.deleteMessage(event);
     }
 
-    @ButtonHandler("no_sabotage")
+    @ButtonHandler(value = "no_sabotage", save = false)
     public static void noSabotage(ButtonInteractionEvent event, Game game, Player player) {
         String message = game.isFowMode() ? "No Sabotage" : null;
         ReactionService.addReaction(event, game, player, message);

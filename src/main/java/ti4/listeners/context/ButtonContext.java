@@ -1,9 +1,12 @@
 package ti4.listeners.context;
 
+import java.lang.reflect.Method;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import ti4.helpers.ButtonHelper;
+import ti4.listeners.annotations.ButtonHandler;
 
 @Getter
 public class ButtonContext extends ListenerContext {
@@ -46,20 +49,27 @@ public class ButtonContext extends ListenerContext {
 
     @Override
     public void save() {
-        boolean skip = componentID.contains("ultimateUndo") ||
-            "showGameAgain".equalsIgnoreCase(componentID) ||
-            "cardsInfo".equalsIgnoreCase(componentID) ||
-            componentID.contains("showDeck") ||
-            componentID.contains("FactionInfo") ||
-            componentID.contains("searchMyGames") ||
-            componentID.contains("decline_explore") ||
-            componentID.contains("offerDeckButtons");
-        if (skip) {
+        if (!shouldSave()) {
             return;
         }
         if (game != null) {
             ButtonHelper.saveButtons(getEvent(), game, player);
         }
         super.save();
+    }
+
+    private boolean shouldSave() {
+      try {
+        Method[] methods = this.getClass().getDeclaredMethods();
+        for (Method method : methods) {
+          if (method.isAnnotationPresent(ButtonHandler.class)) {
+            ButtonHandler annotation = method.getAnnotation(ButtonHandler.class);
+            return annotation.save();
+          }
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return true;
     }
 }
