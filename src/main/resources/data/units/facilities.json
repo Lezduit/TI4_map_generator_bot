@@ -1,0 +1,139 @@
+[
+    {
+        "id": "refinery",
+        "baseType": "facility",
+        "asyncId": "fac_refinery",
+        "name": "Refinery",
+        "subtitle": "Basic facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "HAZARDOUS",
+            "INDUSTRIAL",
+            "LEGENDARY",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "resourcesModifier": 1,
+        "ability": "This planet's resource value is increased by 1"
+    },
+    {
+        "id": "colony",
+        "baseType": "facility",
+        "asyncId": "fac_colony",
+        "name": "Colony",
+        "subtitle": "Basic facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "HAZARDOUS",
+            "INDUSTRIAL",
+            "LEGENDARY",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "influenceModifier": 1,
+        "ability": "This planet's influence value is increased by 1"
+    },
+    {
+        "id": "core_factory",
+        "baseType": "facility",
+        "asyncId": "fac_core",
+        "name": "Core factory",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "HAZARDOUS",
+            "INDUSTRIAL",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "ability": "ACTION: replace this facility with 1 other valid facility. \nPRODUCTION 1"
+    },
+    {
+        "id": "transit_node",
+        "baseType": "facility",
+        "asyncId": "fac_transit",
+        "name": "Transit node",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "HAZARDOUS",
+            "INDUSTRIAL",
+            "LEGENDARY",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "ability": "During the movement step, 1 ship that will move out of or through this system applies +1 to its move value"
+    },
+    {
+        "id": "embassy",
+        "baseType": "facility",
+        "asyncId": "fac_embassy",
+        "name": "Embassy",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "INDUSTRIAL",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "influenceModifier": 0,
+        "ability": "This planet's influence value is increased by the total numbers of embassis in this and adjacent systems."
+    },
+    {
+        "id": "research_lab",
+        "baseType": "facility",
+        "asyncId": "fac_research",
+        "name": "Research lab",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "TECH_SPECIALTY"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "ability": "When this planet is exhausted during the action phase, add 1 trade good to it. \nSpend 2 trade goods from this planet to skip 1 prerequisite, or spend trade goods from this planet to pay for research costs."
+    },
+    {
+        "id": "naval_base",
+        "baseType": "facility",
+        "asyncId": "fac_naval",
+        "name": "Naval base",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "INDUSTRIAL",
+            "LEGENDARY",
+            "MECATOL_REX"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "ability": "This unit can only produce fighters. Up to 4 fighters in this system do not count against your ships' capacity. 1 ship in this system does not count against your fleet pool. \nPRODUCTION 3"
+    },
+    {
+        "id": "logistic_hub",
+        "baseType": "facility",
+        "asyncId": "fac_logistic",
+        "name": "Logistic hub",
+        "subtitle": "Advanced facility",
+        "source": "facilities",
+        "eligiblePlanetTypes": [
+            "CULTURAL",
+            "HAZARDOUS",
+            "INDUSTRIAL"
+        ],
+        "isStructure": true,
+        "isFacility": true,
+        "productionValue": "3",
+        "ability": "While this is adjacent to a neighbor's structure, increase your commodity value by 1. \nWhen this planet is exhausted during the action phase, gain 1 commodity."
+    }
+]
