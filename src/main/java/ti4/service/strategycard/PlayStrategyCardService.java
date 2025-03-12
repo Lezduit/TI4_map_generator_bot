@@ -36,6 +36,7 @@ import ti4.service.emoji.ExploreEmojis;
 import ti4.service.emoji.FactionEmojis;
 import ti4.service.emoji.MiscEmojis;
 import ti4.service.emoji.PlanetEmojis;
+import ti4.service.emoji.SourceEmojis;
 import ti4.service.emoji.UnitEmojis;
 import ti4.service.fow.RiftSetModeService;
 import ti4.service.turn.StartTurnService;
@@ -141,9 +142,19 @@ public class PlayStrategyCardService {
             scButtons.add(Buttons.gray("nekroFollowTech", "Get Command Tokens", FactionEmojis.Nekro));
         }
 
+        
+        if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && game.isFacilitiesMode()) {
+            scButtons.add(Buttons.green("construction_facilities", "Place 1 facility", SourceEmojis.Facilities));
+        }
+        
+        if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && game.isMonumentsMode()) {
+            scButtons.add(Buttons.red("construction_monument", "Place 1 Monument", UnitEmojis.Monument));
+        }
+        
         if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && Helper.getPlayerFromUnit(game, "titans_mech") != null) {
             scButtons.add(Buttons.gray("titansConstructionMechDeployStep1", "Deploy Titan Mech + Inf", FactionEmojis.Titans));
         }
+        
         scButtons.add(Buttons.gray("requestAllFollow_" + scToPlay, "Request All Resolve Now"));
 
         // set the action rows
@@ -582,6 +593,7 @@ public class PlayStrategyCardService {
     /**
      * @return buttons which hit {@link ButtonHelperSCs#construction}
      */
+    // this is a pretty static way of solving additional construction buttons, should this not be added dynamically in the construction buttons function?
     private static List<Button> getMonumentsConstructionButtons(int sc) {
         Button followButton = Buttons.green("sc_follow_" + sc, "Spend A Strategy Token");
         Button sdButton = Buttons.green("construction_spacedock", "Place 1 space dock", UnitEmojis.spacedock);

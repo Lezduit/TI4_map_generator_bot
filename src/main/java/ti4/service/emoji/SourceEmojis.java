@@ -8,7 +8,7 @@ public enum SourceEmojis implements TI4Emoji {
     PoK, Codex,
 
     // Homebrew
-    Absol, DiscordantStars, UnchartedSpace, Monuments, //
+    Absol, DiscordantStars, UnchartedSpace, Monuments, Facilities, //
     ActionDeck2, KeleresPlus, ProjectPi, Flagshipping, PromisesPromises, //
     Eronous, IgnisAurora, MiltyMod, StrategicAlliance;
 
