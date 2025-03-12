@@ -323,6 +323,7 @@ public class AsyncTI4DiscordBot {
         adminRoles.add(jda.getRoleById("1226805374007640095")); // Solax's Server
         adminRoles.add(jda.getRoleById("1313965793532186725")); // ppups's Server
         adminRoles.add(jda.getRoleById("951230650680225863")); // Community Server
+        adminRoles.add(jda.getRoleById("1347685828020666411")); // Lezduit's Server
         adminRoles.removeIf(Objects::isNull);
 
         //DEVELOPER ROLES
@@ -340,6 +341,7 @@ public class AsyncTI4DiscordBot {
         developerRoles.add(jda.getRoleById("1226068105071956058")); // Rintsi's Server
         developerRoles.add(jda.getRoleById("1226805601422676069")); // Solax's Server
         developerRoles.add(jda.getRoleById("1313966002551128166")); // ppups's Server
+        developerRoles.add(jda.getRoleById("1347685869657653359")); // Lezduit's Server
         developerRoles.removeIf(Objects::isNull);
 
         //BOTHELPER ROLES
@@ -360,6 +362,7 @@ public class AsyncTI4DiscordBot {
         bothelperRoles.add(jda.getRoleById("1226805674046914560")); // Solax's Server 
         bothelperRoles.add(jda.getRoleById("1313965956338417784")); // ppups's Server
         bothelperRoles.add(jda.getRoleById("1248693989193023519")); // Community Server
+        bothelperRoles.add(jda.getRoleById("1347685949034987520")); // Lezduit's Server
         bothelperRoles.removeIf(Objects::isNull);
     }
 
