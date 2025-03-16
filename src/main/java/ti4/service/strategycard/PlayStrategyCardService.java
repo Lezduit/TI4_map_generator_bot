@@ -141,15 +141,6 @@ public class PlayStrategyCardService {
         if (scModel.usesAutomationForSCID("pok7technology") && !game.isFowMode() && Helper.getPlayerFromAbility(game, "propagation") != null) {
             scButtons.add(Buttons.gray("nekroFollowTech", "Get Command Tokens", FactionEmojis.Nekro));
         }
-
-        
-        if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && game.isFacilitiesMode()) {
-            scButtons.add(Buttons.green("construction_facilities", "Place 1 facility", SourceEmojis.Facilities));
-        }
-        
-        if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && game.isMonumentsMode()) {
-            scButtons.add(Buttons.red("construction_monument", "Place 1 Monument", UnitEmojis.Monument));
-        }
         
         if (scModel.usesAutomationForSCID("pok4construction") && !game.isFowMode() && Helper.getPlayerFromUnit(game, "titans_mech") != null) {
             scButtons.add(Buttons.gray("titansConstructionMechDeployStep1", "Deploy Titan Mech + Inf", FactionEmojis.Titans));

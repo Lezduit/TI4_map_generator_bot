@@ -99,7 +99,8 @@ public class Units {
      * UnitType - aka {@link UnitModel.getAsyncId()} - is a list of all the units in the game.
      */
     public enum UnitType {
-        Infantry("gf"), Mech("mf"), Pds("pd"), Spacedock("sd"), CabalSpacedock("csd"), Monument("monument"), // ground based
+        Infantry("gf"), Mech("mf"), Pds("pd"), Spacedock("sd"), CabalSpacedock("csd"), Monument("monument"), //ground based
+        Refinery("refinery"), Colony("colony"), CoreFactory("core_factory"), TransitNode("transit_node"), Embassy("embassy"), ResearchLab("research_lab"), NavalBase("naval_base"), LogisticHub("logistic_hub"), // also ground based (facilities)
         Fighter("ff"), Destroyer("dd"), Cruiser("ca"), Carrier("cv"), Dreadnought("dn"), Flagship("fs"), Warsun("ws"), //ships
         PlenaryOrbital("plenaryorbital"), TyrantsLament("tyrantslament"), Lady("lady"), Cavalry("cavalry"), //relics
         StarfallPds("starfallpds");
@@ -129,6 +130,14 @@ public class Units {
                 case Cavalry -> "The Cavalry";
                 case Lady -> "The Lady";
                 case Monument -> "Monument";
+                case Refinery -> "Refinery";
+                case Colony -> "Colony";
+                case CoreFactory -> "Core Factory";
+                case TransitNode -> "Transit Node";
+                case Embassy -> "Embassy";
+                case ResearchLab -> "Research Lab";
+                case NavalBase -> "Naval Base";
+                case LogisticHub -> "Logistic Hub";
             };
         }
 
@@ -150,6 +159,14 @@ public class Units {
                 case Cavalry -> "cavalry";
                 case Lady -> "lady";
                 case Monument -> "monument";
+                case Refinery -> "refinery";
+                case Colony -> "colony";
+                case CoreFactory -> "core factory";
+                case TransitNode -> "transit node";
+                case Embassy -> "embassy";
+                case ResearchLab -> "research lab";
+                case NavalBase -> "naval base";
+                case LogisticHub -> "logistic hub";
             };
         }
 
@@ -169,6 +186,14 @@ public class Units {
                 case TyrantsLament -> UnitEmojis.TyrantsLament;
                 case Warsun -> UnitEmojis.warsun;
                 case Monument -> UnitEmojis.Monument;
+                case Refinery -> UnitEmojis.Refinery;
+                case Colony -> UnitEmojis.Colony;
+                case CoreFactory -> UnitEmojis.CoreFactory;
+                case TransitNode -> UnitEmojis.TransitNode;
+                case Embassy -> UnitEmojis.Embassy;
+                case ResearchLab -> UnitEmojis.ResearchLab;
+                case NavalBase -> UnitEmojis.NavalBase;
+                case LogisticHub -> UnitEmojis.LogisticHub;
             };
         }
 

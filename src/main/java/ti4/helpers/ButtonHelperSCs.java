@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -412,6 +413,26 @@ public class ButtonHelperSCs {
 
     }
 
+    @ButtonHandler("placeFacilityType")
+    public static void facilityTypes(Game game, Player player, ButtonInteractionEvent event, String buttonID) {
+        List<Button> facilityButtons = new ArrayList<>();
+        Set<String> facilityTypes = player.getFacilityUnitsOwned();
+        for (String facility : facilityTypes) {
+            facilityButtons.add(Buttons.green("placeFacilityPlanet_" + facility, ""));
+        }
+        String message = player.getRepresentationUnfogged() + ", choose which facility type you would like to place.";
+        MessageHelper.sendMessageToEventChannelWithEphemeralButtons(event, message, facilityButtons);
+    }
+
+    @ButtonHandler("placeFacilityPlanet_")
+    public static void placeFacility(Game game, Player player, ButtonInteractionEvent event, String buttonID) {
+        String unit = buttonID.replace("placeFacilityPlanet_", "");
+        String message = player.getRepresentationUnfogged() + ", please choose the planet you wish to put your "
+            + unit + " on for **Construction**.";
+        List<Button> buttons = Helper.getPlanetPlaceUnitButtons(player, game, unit, "place");
+        MessageHelper.sendMessageToEventChannelWithEphemeralButtons(event, message, buttons);
+    }
+
     @ButtonHandler("construction_")
     public static void construction(Game game, Player player, ButtonInteractionEvent event, String buttonID) {
         String messageID = event.getMessageId();
@@ -446,6 +467,9 @@ public class ButtonHelperSCs {
             message += "\n## __It will place a command token in the system as well.__ ";
         }
         List<Button> buttons = Helper.getPlanetPlaceUnitButtons(player, game, unit, "place");
+        if (unit.equals("pds")) {
+            buttons.add(Buttons.blue("placeFacilityType", "Place a Facility instead"));
+        }
         MessageHelper.sendMessageToEventChannelWithEphemeralButtons(event, message, buttons);
         // List<MessageCreateData> messageList = MessageHelper.getMessageCreateDataObjects(message, buttons);
         // for (MessageCreateData messageD : messageList) {

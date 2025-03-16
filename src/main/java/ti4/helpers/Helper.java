@@ -2430,4 +2430,8 @@ public class Helper {
         }
         return sb.toString();
     }
+
+    public static Set<String> getFacilityTypes(Player player, Game game) {        
+        return player.getFacilityUnitsOwned();
+    }
 }

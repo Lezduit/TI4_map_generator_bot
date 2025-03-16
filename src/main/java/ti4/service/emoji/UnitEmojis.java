@@ -12,7 +12,8 @@ public enum UnitEmojis implements TI4Emoji {
     mech, infantry,
 
     // Homebrew
-    TyrantsLament, PlenaryOrbital, Monument;
+    TyrantsLament, PlenaryOrbital, Monument,
+    Refinery, Colony, CoreFactory, TransitNode, Embassy, ResearchLab, NavalBase, LogisticHub;
 
     @Override
     public String toString() {
@@ -48,6 +49,22 @@ public enum UnitEmojis implements TI4Emoji {
             case "plenaryorbital", "plenary orbital":
                 return PlenaryOrbital.toString();
             case "monument":
+                return Monument.toString();
+            case "refinery":
+                return Monument.toString();
+            case "colony":
+                return Monument.toString();
+            case "core_factory":
+                return Monument.toString();
+            case "transit_node":
+                return Monument.toString();
+            case "embassy":
+                return Monument.toString();
+            case "research_lab":
+                return Monument.toString();
+            case "naval_base":
+                return Monument.toString();
+            case "logistic_hub":
                 return Monument.toString();
         }
         return TI4Emoji.getRandomGoodDog().toString() + "`" + unit + "`";

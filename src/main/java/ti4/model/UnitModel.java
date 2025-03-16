@@ -58,6 +58,7 @@ public class UnitModel implements ModelInterface, EmbeddableModel {
     private Boolean canBeDirectHit;
     private Boolean isStructure;
     private Boolean isMonument;
+    private Boolean isFacility;
     private Boolean isGroundForce;
     private Boolean isShip;
     private Boolean isSpaceOnly;

@@ -839,6 +839,12 @@ public class Player {
             .filter(u -> Mapper.getUnit(u).getFaction().isPresent()).collect(Collectors.toSet());
     }
 
+    @JsonIgnore
+    public Set<String> getFacilityUnitsOwned() {
+        return unitsOwned.stream()
+            .filter(u -> Mapper.getUnit(u).getIsFacility()).collect(Collectors.toSet());
+    }
+
     public boolean hasUnit(String unit) {
         return unitsOwned.contains(unit);
     }
