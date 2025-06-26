@@ -21,7 +21,6 @@ public class RelicCommand implements ParentCommand {
         new RelicSend(),
         new RelicShuffleBack(),
         new RelicShowRemaining(),
-        new RelicAddBackIntoDeck(),
         new RelicAddCodexRelics(),
         new RelicSendFragments(),
         new RelicPurgeFragments()).collect(Collectors.toMap(Subcommand::getName, subcommand -> subcommand));
